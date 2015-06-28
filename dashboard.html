@@ -10,8 +10,23 @@
       <!-- <link rel="stylesheet" type="text/css" href="../public/css/login.css"> -->
   </head>
   <body>
-      <!-- <section class="demo"> -->
-          <div id='headers'>
+
+
+  <header>
+
+            <div id="dd" class="wrapper-dropdown" tabindex="1">heron2014
+                <ul class="dropdown">
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+            <div id="image">
+            <img src="" alt="" height:"50px" width:"50px" />
+        </div>
+        </header>
+        <div id='container'>
+
+        <div id='headers'>
               <h1 class='tracker' id='later'>Later</h1>
               <h1 class='tracker'>Soon</h1>
               <h1 class='tracker'>Now</h1>
@@ -19,38 +34,52 @@
           </div>
           <div class="gridster">
               <ul>
-                  <!-- <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="4" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="5" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="6" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="7" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li>
-                  <li data-row="8" data-col="1" data-sizex="1" data-sizey="1"><h1>one</h1></li> -->
-
-                  <!-- <li data-row="1" data-col="2" data-sizex="1" data-sizey="1"><h1>two</h1></li>
-                  <li data-row="2" data-col="2" data-sizex="1" data-sizey="1"><h1>two</h1></li>
-                  <li data-row="3" data-col="2" data-sizex="1" data-sizey="1"><h1>two</h1></li>
-                  <li data-row="4" data-col="2" data-sizex="1" data-sizey="1"><h1>two</h1></li>
-                  <li data-row="1" data-col="3" data-sizex="1" data-sizey="1"><h1>three</h1></li>
-                  <li data-row="2" data-col="3" data-sizex="1" data-sizey="1"><h1>three</h1></li>
-                  <li data-row="3" data-col="3" data-sizex="1" data-sizey="1"><h1>three</h1></li>
-                  <li data-row="4" data-col="3" data-sizex="1" data-sizey="1"><h1>three</h1></li>
-                  <li data-row="1" data-col="3" data-sizex="1" data-sizey="1"><h1>four</h1></li>
-                  <li data-row="2" data-col="3" data-sizex="1" data-sizey="1"><h1>four</h1></li>
-                  <li data-row="3" data-col="3" data-sizex="1" data-sizey="1"><h1>four</h1></li>
-                  <li data-row="4" data-col="3" data-sizex="1" data-sizey="1"><h1>four</h1></li>
-                  <li data-row="1" data-col="3" data-sizex="1" data-sizey="1"><h1>five</h1></li>
-                  <li data-row="2" data-col="3" data-sizex="1" data-sizey="1"><h1>five</h1></li>
-                  <li data-row="3" data-col="3" data-sizex="1" data-sizey="1"><h1>five</h1></li>
-                  <li data-row="4" data-col="3" data-sizex="1" data-sizey="1"><h1>five</h1></li> -->
+                  
               </ul>
           </div>
-      <!-- </section> -->
-      <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+           
+
+        </div><!--end of container-->
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+     
       <script type="text/javascript" src="js/jquery.gridster.js" charster="utf-8"></script>
       <script type="text/javascript" src="js/dashboard.js" charster="utf-8"></script>
+        <script src="js/repos.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            function DropDown(el) {
+                this.dd = el;
+                this.initEvents();
+            }
+            DropDown.prototype = {
+                initEvents : function() {
+                    var obj = this;
+
+                    obj.dd.on('click', function(event){
+                        $(this).toggleClass('active');
+                        event.stopPropagation();
+                    });
+                }
+            }
+
+            $(function() {
+
+                var dd = new DropDown( $('#dd') );
+
+                $(document).click(function() {
+                    // all dropdowns
+                    $('.wrapper-dropdown').removeClass('active');
+                });
+
+            });
+        </script>
+
+        
+      <!-- <section class="demo"> -->
+          
+      <!-- </section> -->
+      
 
   </body>
 </html>
